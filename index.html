@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>可以v我50吗？</title>
+    <style>
+        /* 页面基础样式：居中、背景色 */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffe4e1; /* 浅粉色背景 */
+            font-family: "微软雅黑", sans-serif;
+            margin: 0;
+            overflow: hidden;
+        }
+        /* 内容容器 */
+        .box {
+            text-align: center;
+        }
+        /* 表情图（这里用文字代替，你也可以换图片） */
+        .emoji {
+            font-size: 80px;
+            margin-bottom: 20px;
+        }
+        /* 提问文字 */
+        h1 {
+            color: #333;
+            margin-bottom: 40px;
+            font-size: 24px;
+        }
+        /* 按钮通用样式 */
+        button {
+            padding: 12px 30px;
+            margin: 0 15px;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        /* “可以”按钮（红色） */
+        .yes {
+            background-color: #ff6b6b;
+            color: white;
+        }
+        /* “不要”按钮（蓝色） */
+        .no {
+            background-color: #4d96ff;
+            color: white;
+            position: absolute; /* 绝对定位，方便跑开 */
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="emoji">🥺</div>
+        <h1>可以v我50吗？</h1>
+        <button class="yes" onclick="sayYes()">可以</button>
+        <button class="no" id="noBtn">不要</button>
+    </div>
+
+    <script>
+        const noBtn = document.getElementById('noBtn');
+
+        // 1. 鼠标移上去，“不要”按钮就跑开
+        noBtn.addEventListener('mouseover', () => {
+            const x = Math.random() * (window.innerWidth - 100);
+            const y = Math.random() * (window.innerHeight - 50);
+            noBtn.style.left = x + 'px';
+            noBtn.style.top = y + 'px';
+        });
+
+        // 2. 点击“可以”弹窗
+        function sayYes() {
+            alert('你不愧是我最好的朋友❤️（好人卡一张）');
+            // 进阶：这里可以加跳转链接，比如去你的 GitHub 主页
+            // window.location.href = "https://你的链接";
+        }
+
+        // 3. 点击“不要”也强行变可以（防手快）
+        noBtn.addEventListener('click', () => {
+            sayYes();
+        });
+    </script>
+</body>
+</html>
